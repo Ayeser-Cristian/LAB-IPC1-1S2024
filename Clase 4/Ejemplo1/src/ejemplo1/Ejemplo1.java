@@ -9,7 +9,7 @@ package ejemplo1;
  * @author coxla
  */
 public class Ejemplo1 {
-
+//nfkjvf
     /**
      * @param args the command line arguments
      */
@@ -18,6 +18,7 @@ public class Ejemplo1 {
         La forma de declarar un objeto es de la siguiente forma:
             NombreClase variable = new NombreClase();
          */
+        System.out.println("Holaaaaaaaaaaaaaaa");
 
         //Creando una instanacia de la clase "Persona", es decir, un objeto
         //Creando Objeto 1
