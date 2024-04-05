@@ -1,0 +1,10 @@
+
+.login-backeground{
+    background-image: url('../Images/fondo.png');
+    background-size: cover;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
