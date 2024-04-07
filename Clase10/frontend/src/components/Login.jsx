@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+
+
 
 import './Styles/Styles.css'
 
 function Login() {
     const [carnet, setCarnet] = useState('')
     const [password1, setPassword1] = useState('')
+
+    const [cookies, setCoookies] = useCookies(['usuario'])
+
+    const Navegador = useNavigate()
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,9 +32,13 @@ function Login() {
             .then((response) => response.json())
             .then((res) => {
 
-                if (res.encontrado == true) {
+                if (res.encontrado === true) {
                     const dataUser = res.datos
+                    console.log(dataUser)
+
                     alert(`Bienvenido ${dataUser.nombre}`)
+                    setCoookies('usuario', dataUser)
+                    Navegador('/admin')
                 } else {
                     alert("Credenciales incorrectas")
                 }

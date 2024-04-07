@@ -1,9 +1,9 @@
 import './App.css';
-import Login from './components/Login.jsx'
+import Router from './components/Router/router'
 function App() {
   return (
     <div >
-      <Login/>
+      <Router/>
     </div>
   );
 }

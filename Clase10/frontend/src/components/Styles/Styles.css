@@ -1,10 +1,35 @@
-
-.login-backeground{
+.login-backeground {
     background-image: url('../Images/fondo.png');
     background-size: cover;
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
+
+
+.admin-background  {
+    background-image: url('https://www.xtrafondos.com/wallpapers/resoluciones/19/edificios-ciudad-de-noche_2560x1440_3183.jpg');
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.center-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+  }
+  
+  .table-container {
+    margin-top: 20px;
+    width: 70%;
+  }
+
