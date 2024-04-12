@@ -1,0 +1,182 @@
+.login-backeground {
+  background-image: url('../Images/fondo.png');
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.admin-background {
+  background-image: url('https://www.xtrafondos.com/wallpapers/resoluciones/19/edificios-ciudad-de-noche_2560x1440_3183.jpg');
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.center-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Centra horizontalmente */
+  align-items: center;
+  /* Centra verticalmente */
+}
+
+.table-container {
+  margin-top: 20px;
+  width: 70%;
+}
+
+
+/*Fonde de pantalla para crear Post y Home*/
+
+.home-background {
+  background-image: url('https://lieve.co/wp-content/uploads/2021/06/Diseno-sin-titulo-1.jpg');
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+
+/*Estilos para el navBar*/
+
+.container-navbar {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+  top: 0;
+  background-color: #212529;
+}
+
+.left-container-navbar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  padding-left: 5%;
+}
+
+.right-container-navbar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  flex-direction: row-reverse;
+  padding-right: 5%;
+}
+
+
+.link-list {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  height: 100%;
+  align-items: center;
+  margin: 0px;
+}
+
+.link-list-item {
+  color: white;
+  margin-right: 35px;
+}
+
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.logout-btn {
+  margin-left: auto;
+}
+
+
+
+
+/*Form Post Estilos*/
+
+.center-post-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+.post-form {
+  width: 500px;
+  padding: 20px;
+  background-color: #dce0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-form h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+/*Estilos para la ventana Home*/
+
+/*--------------Estilos de cartas----------------*/
+
+.card-container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 700px;
+}
+
+.card-header {
+  margin-bottom: 10px;
+}
+
+.card-img {
+  width: 50%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+.card-center-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
