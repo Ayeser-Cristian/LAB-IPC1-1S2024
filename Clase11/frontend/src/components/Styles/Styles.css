@@ -10,13 +10,10 @@
 
 
 .admin-background {
-  background-image: url('https://www.xtrafondos.com/wallpapers/resoluciones/19/edificios-ciudad-de-noche_2560x1440_3183.jpg');
+  background-image: url('https://es-mx.learn.canva.com/wp-content/uploads/sites/11/2018/12/100-fondos-de-pantalla.jpg');
   background-size: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 

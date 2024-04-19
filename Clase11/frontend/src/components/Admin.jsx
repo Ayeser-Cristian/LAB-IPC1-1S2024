@@ -3,6 +3,8 @@ import './Styles/Styles.css'
 import { useCookies } from 'react-cookie';
 import { Modal } from 'react-bootstrap'
 
+import NavBarAdmin from "./NavBarAdmin";
+
 function Administrador() {
 
     const [cookies, setCoookies] = useCookies(['usuario'])
@@ -66,69 +68,73 @@ function Administrador() {
 
 
     }
-
+    //Nota: Se modifico el style "admin-background" 
     return (
-        <div className="admin-background">
-        
-            <div className="center-container ">
+        <div>
+           <NavBarAdmin/>
 
-                <div className="table-container ">
+            <div className="admin-background">
 
-                    <table className="table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th >Carnet</th>
-                                <th >Nombre</th>
-                                <th >Edad</th>
-                                <th >Facultad</th>
-                                <th >Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody >
-                            {users.map(user_x => (
+                <div className="center-container ">
+
+                    <div className="table-container ">
+
+                        <table className="table table-bordered text-center">
+                            <thead>
                                 <tr>
-                                    <td>{user_x.carnet}</td>
-                                    <td>{user_x.nombre}</td>
-                                    <td>{user_x.edad}</td>
-                                    <td>{user_x.facultad}</td>
-                                    <td>
-                                        <button className="btn btn-outline-danger" onClick={() => deleteUser(user_x.carnet)} >Eliminar</button>
-                                        <button className="btn btn-outline-info" onClick={() => viewUser(user_x)}>Ver</button>
-                                    </td>
+                                    <th >Carnet</th>
+                                    <th >Nombre</th>
+                                    <th >Edad</th>
+                                    <th >Facultad</th>
+                                    <th >Acciones</th>
                                 </tr>
-                            )
-                            )
+                            </thead>
+                            <tbody >
+                                {users.map(user_x => (
+                                    <tr>
+                                        <td>{user_x.carnet}</td>
+                                        <td>{user_x.nombre}</td>
+                                        <td>{user_x.edad}</td>
+                                        <td>{user_x.facultad}</td>
+                                        <td>
+                                            <button className="btn btn-outline-danger" onClick={() => deleteUser(user_x.carnet)} >Eliminar</button>
+                                            <button className="btn btn-outline-info" onClick={() => viewUser(user_x)}>Ver</button>
+                                        </td>
+                                    </tr>
+                                )
+                                )
 
-                            }
-                        </tbody>
+                                }
+                            </tbody>
 
-                    </table>
-
-
-                    {selectdUser && (
-                        <Modal show={true} onHide={viewUserClose}>
-
-                            <Modal.Header closeButton>
-                                <Modal.Title>Detalles del Usuario</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <p>Carnet: {selectdUser.carnet} </p>
-                                <p>Nombre: {selectdUser.nombre} </p>
-                                <p>Edad: {selectdUser.edad} </p>
-                                <p>Facultad: {selectdUser.facultad} </p>
-                            </Modal.Body>
-
-                            <Modal.Footer>
-                                <button variant="secondary" onClick={viewUserClose}>
-                                    Cerrrar
-                                </button>
-                            </Modal.Footer>
-                        </Modal>
-
-                    )
+                        </table>
 
 
-                    }
+                        {selectdUser && (
+                            <Modal show={true} onHide={viewUserClose}>
+
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Detalles del Usuario</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <p>Carnet: {selectdUser.carnet} </p>
+                                    <p>Nombre: {selectdUser.nombre} </p>
+                                    <p>Edad: {selectdUser.edad} </p>
+                                    <p>Facultad: {selectdUser.facultad} </p>
+                                </Modal.Body>
+
+                                <Modal.Footer>
+                                    <button variant="secondary" onClick={viewUserClose}>
+                                        Cerrrar
+                                    </button>
+                                </Modal.Footer>
+                            </Modal>
+
+                        )
+
+
+                        }
+                    </div>
                 </div>
             </div>
         </div>

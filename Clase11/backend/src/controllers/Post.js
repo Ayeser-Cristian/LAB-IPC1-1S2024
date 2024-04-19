@@ -41,7 +41,7 @@ function getAllPost(req, res) {
 
             const usuario = list_users.find(user => user.carnet === post.user);
 
-            
+
 
             if (usuario) {
                 const post_con_usuario = {
@@ -56,7 +56,7 @@ function getAllPost(req, res) {
             }
         }
 
-
+        posts_con_usuario.reverse();
         res.json(
             { publicaciones: posts_con_usuario }
         );
@@ -70,7 +70,88 @@ function getAllPost(req, res) {
     }
 }
 
+
+
+function getReportBar(req, res) {
+
+    try {
+        // Se inicializa un objeto vacío para almacenar el recuento de publicaciones por usuario
+        const postCountByUser = {}
+
+        // Se recorre la lista de publicaciones
+        for (const post of list_post) {
+            if (post.user in postCountByUser) {
+                // Si el usuario ya está en el objeto postCountByUser, se incrementa el contador de publicaciones
+                postCountByUser[post.user]++
+            } else {
+                // Si el usuario no está en el objeto, se agrega con un contador inicializado en 1
+                postCountByUser[post.user] = 1
+            }
+        }
+
+        
+        // Se convierte el objeto postCountByUser a un array de objetos, donde cada objeto tiene el usuario y su cantidad de publicaciones
+        const objects_userPost = Object.keys(postCountByUser).map(user => ({
+            user,
+            post: postCountByUser[user]
+        }))
+
+        /*objects_userPost = [
+            {
+                user: 202010026
+                post:8
+            },
+
+            {
+                user: 202010025
+                post:5
+            }
+        ]
+        */
+
+        // Agrega el nombre del usuario a objects_userPost
+        for (const obj of objects_userPost) {
+            const usuario = list_users.find(user => user.carnet === obj.user);
+            if (usuario) {
+                obj.nombre = usuario.nombre;
+            }
+        }
+
+        /*objects_userPost = [
+            {
+                user: 202010026
+                post:8
+                nombre: Luis Jose
+            },
+
+            {
+                user: 202010025
+                post:5
+                nombre: Maria Lopez
+            }
+        ]
+        */
+
+
+        objects_userPost.sort((a, b) => b.post - a.post)  // Se ordena el array objects_userPost en orden descendente según la cantidad de publicaciones
+
+        const topuserPost = objects_userPost.slice(0, 10) //Obtiene solo los primeros 10 elementos de la lista
+
+        res.json({ topBar: topuserPost })
+
+
+
+    } catch (error) {
+        return res.json(
+            {
+                error: "Ocurrió un error al eliminar al usuario"
+            }
+        )
+    }
+}
+
 module.exports = {
     createPost,
-    getAllPost
+    getAllPost,
+    getReportBar
 }
