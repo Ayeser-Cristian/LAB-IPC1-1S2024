@@ -57,6 +57,7 @@ function ReporteBar({lista}) {
 
     return (
         <div>
+            
             <canvas ref={chartBarRef} with="400" height="200"></canvas>
         </div>
     )
