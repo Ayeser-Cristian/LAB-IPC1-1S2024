@@ -1,0 +1,23 @@
+[
+  {
+    "carnet": "201915551",
+    "nombre": "Juan Pablo",
+    "edad": 25,
+    "facultad": "Ingeniería",
+    "password": "HolaMundo1*"
+  },
+  {
+    "carnet": "201922222",
+    "nombre": "María Fernanda",
+    "edad": 23,
+    "facultad": "Medicina",
+    "password": "AdiosMundo2@"
+  },
+  {
+    "carnet": "201933333",
+    "nombre": "Luis Miguel",
+    "edad": 28,
+    "facultad": "Ciencias Económicas",
+    "password": "Secret123#"
+  }
+]

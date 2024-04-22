@@ -13,6 +13,9 @@ function Administrador() {
     const [selectdUser, setSelectdUser] = useState(null)
     const [actualizarTabla, setActualizarTabla] = useState(false)
 
+    //Para la carga del JSON
+    const [selectedFile, setSelectedFile] = useState(null);
+
     useEffect(() => {
 
         fetch(`http://localhost:5000/GetAllUsers`, {
@@ -68,13 +71,51 @@ function Administrador() {
 
 
     }
+    //Cargar los datos al backend
+    const cargarDatos= async ()=>{
+        if(!selectedFile){
+            alert("Por favor, seleccione un archivo JSON")
+            return
+        }
+
+        const jsonData= await selectedFile.text()
+        
+        const userArray=JSON.parse(jsonData)
+
+        fetch(`http://localhost:5000/CargaMasiva`, {
+            method: "POST", // Utiliza el método POST
+            body: JSON.stringify(userArray),
+            headers: {
+                "Content-Type": "application/json", 
+            },
+        })
+            .then((response) => response.json())
+            .then((res) => {
+                if (res.mensaje) {
+                    alert(res.mensaje)
+                    setActualizarTabla(!actualizarTabla)
+                } else {
+                    alert(res.error)
+                }
+
+            })
+            .catch((error) => console.error(error))
+
+
+    }
+    //Seleccionar el archivo
+    const handleFileChange=(event)=>{
+        setSelectedFile(event.target.files[0])
+    }
     //Nota: Se modifico el style "admin-background" 
     return (
         <div>
            <NavBarAdmin/>
-
+            {/*CARGA MASIVA */}
             <div className="admin-background">
+            <input type="file" onChange={handleFileChange} accept=".json"/>
 
+            <button onClick={cargarDatos} className="btn btn-warning">Cargar Archivo</button>
                 <div className="center-container ">
 
                     <div className="table-container ">

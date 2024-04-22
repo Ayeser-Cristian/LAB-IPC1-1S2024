@@ -1,6 +1,32 @@
 const { list_users } = require('../DataList/dataList')
 const Usuario = require('../objects/Usuario')
 
+//Carga masiva de usuarios
+function CargaMasiva(req, res) {
+    try {
+        const usersArray=req.body
+        console.log(usersArray)
+        for (const userData of usersArray) {
+            const { carnet, nombre, edad, facultad, password } = userData;
+            const newUser = new Usuario(carnet, nombre, edad, facultad, password);
+            list_users.push(newUser);
+        }
+       
+        res.json(
+            {
+                mensaje: "Usuarios Agregados correctamente"
+            }
+        )
+    } catch (error) {
+        console.log(error)
+        return res.json(
+            {
+                error: "Ocurrió un error al realziar la carga masiva de usuarios"
+            }
+        )
+    }
+}
+
 function SignUp(req, res) {
 
     try {
@@ -128,5 +154,6 @@ function Login(req, res) {
 module.exports = {
     SignUp,
     GetAllUsers,
-    Login
+    Login, 
+    CargaMasiva
 }
