@@ -1,7 +1,7 @@
 const { list_users } = require('../DataList/dataList')
 const Usuario = require('../objects/Usuario')
 
-//Carga masiva de usuarios
+//Carga masiva de usuarios agregando comentario
 function CargaMasiva(req, res) {
     try {
         const usersArray=req.body
